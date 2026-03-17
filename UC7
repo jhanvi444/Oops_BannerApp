@@ -1,1 +1,72 @@
 
+class CharacterPattern {
+    char character;
+    String[] pattern;
+
+    public CharacterPattern(char character, String[] pattern) {
+        this.character = character;
+        this.pattern = pattern;
+    }
+
+    public String[] getPattern() {
+        return pattern;
+    }
+}
+
+public class OOPSBannerApp {
+
+    public static String[] getO() {
+        return new String[]{
+            " *** ",
+            "*   *",
+            "*   *",
+            "*   *",
+            " *** "
+        };
+    }
+
+    public static String[] getP() {
+        return new String[]{
+            "**** ",
+            "*   *",
+            "**** ",
+            "*    ",
+            "*    "
+        };
+    }
+
+    public static String[] getS() {
+        return new String[]{
+            " ****",
+            "*    ",
+            " *** ",
+            "    *",
+            "**** "
+        };
+    }
+
+    public static void main(String[] args) {
+
+        CharacterPattern oPattern = new CharacterPattern('O', getO());
+        CharacterPattern pPattern = new CharacterPattern('P', getP());
+        CharacterPattern sPattern = new CharacterPattern('S', getS());
+
+        String word = "OOPS";
+
+        CharacterPattern[] patterns = {oPattern, pPattern, sPattern};
+
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < word.length(); j++) {
+
+                char ch = word.charAt(j);
+
+                for (CharacterPattern cp : patterns) {
+                    if (cp.character == ch) {
+                        System.out.print(cp.getPattern()[i] + "  ");
+                    }
+                }
+            }
+            System.out.println();
+        }
+    }
+}
